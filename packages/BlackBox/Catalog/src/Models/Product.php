@@ -1,6 +1,6 @@
 <?php
 
-namespace Quimaira\Catalog\Models;
+namespace BlackBox\Catalog\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\{HasMany, BelongsTo, BelongsToMany};

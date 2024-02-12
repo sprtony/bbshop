@@ -32,6 +32,6 @@ class Buscador extends Component
                 ->get();
         }
 
-        return view('catalog::livewire.buscador', compact('results'));
+        return view('catalog::livewire.search-bar', compact('results'));
     }
 }
