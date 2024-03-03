@@ -52,7 +52,8 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
-            "BlackBox\\Admin\\": "packages/BlackBox/Admin/src"
+            "BlackBox\\Admin\\": "packages/BlackBox/Admin/src",
+            "BlackBox\\Customers\\": "packages/BlackBox/Customers/src"
         }
     },
     "autoload-dev": {

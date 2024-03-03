@@ -1,10 +1,10 @@
 <?php
 
-namespace Quimaira\Catalog\Providers;
+namespace BlackBox\Catalog\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
-use Quimaira\Catalog\Livewire\{Buscador, Listado, Cotizador};
+use BlackBox\Catalog\Livewire\{SearchBar, ProductList};
 
 class CatalogServiceProvider extends ServiceProvider
 {
@@ -17,8 +17,12 @@ class CatalogServiceProvider extends ServiceProvider
 
     public function register()
     {
-        Livewire::component('catalog::buscador', Buscador::class);
-        Livewire::component('catalog::listado', Listado::class);
-        Livewire::component('catalog::cotizador', Cotizador::class);
+
+        $this->registerLivewireComponents();
+    }
+    private function registerLivewireComponents()
+    {
+        Livewire::component('catalog::search-bar', SearchBar::class);
+        Livewire::component('catalog::product-list', ProductList::class);
     }
 }

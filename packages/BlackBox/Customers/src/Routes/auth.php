@@ -2,13 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\Auth\{EmailVerificationController, LogoutController};
+use BlackBox\Customers\Http\Controllers\Auth\{EmailVerificationController, LogoutController};
 
 use Livewire\Volt\Volt;
-use App\Livewire\Auth\Passwords\Confirm;
 
 Route::middleware('guest')->group(function () {
-    Volt::route('login', 'auth.login')->name('login');
+    Route::view('login', 'customers::auth.login')->name('login');
     Volt::route('register', 'auth.register')->name('register');
 });
 
@@ -26,8 +25,6 @@ Route::middleware('auth')->group(function () {
 
     Volt::route('password/confirm', 'auth.passwords.confirm')
         ->name('password.confirm');
-
-
 
 
     Route::get('email/verify/{id}/{hash}', EmailVerificationController::class)

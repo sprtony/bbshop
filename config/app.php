@@ -34,6 +34,7 @@ return [
         App\Providers\VoltServiceProvider::class,
 
         BlackBox\Admin\Providers\AdminPanelProvider::class,
+        BlackBox\Customers\Providers\CustomersServiceProvider::class,
         // BlackBox\Catalog\Providers\CatalogServiceProvider::class,
         // BlackBox\Blog\Providers\BlogServiceProvider::class,
     ])->toArray(),

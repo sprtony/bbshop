@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace BlackBox\Customers\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
@@ -13,6 +13,6 @@ class LogoutController extends Controller
     {
         Auth::logout();
 
-        return redirect(route('home'));
+        return redirect(RouteServiceProvider::HOME);
     }
 }
