@@ -13,5 +13,3 @@ import.meta.glob(["../images/**"]);
 //     forceTLS: true
 // });
 //
-import * as Taos from "taos";
-window.Taos = Taos;

@@ -1,13 +1,13 @@
 <section id="brands" class="bg-gray-200">
     <div class="h-10"></div>
-    <h1 class="text-primario text-center text-xl lg:text-4xl font-circularSTD font-semibold">MARCAS LIDERES</h1>
+    <h1 class="text-xl font-semibold text-center lg:text-4xl text-primario">MARCAS LIDERES</h1>
     <div class="h-10"></div>
 
     <div class="glide brands">
         <div class="glide__track" data-glide-el="track">
             <ul class="glide__slides">
                 @foreach ($brands as $brand)
-                    <li class="glide__slide flex justify-center">
+                    <li class="flex justify-center glide__slide">
                         <x-catalog::brand-card :brand="$brand" />
                     </li>
                 @endforeach

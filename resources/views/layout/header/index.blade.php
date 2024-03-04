@@ -1,14 +1,15 @@
 <header class="sticky top-0 z-50">
 
     {{-- notificaciones --}}
-    <div class="p-2 text-white bg-black">
-        <div class="container flex justify-end items-center">
-            @if (is_array($phone = setting('social.phone')) && isset(current($phone)->data->number))
-                <a href="tel:{{ current($phone)->data->number ?? '' }}" class="flex items-center">
-                    <x-heroicon-s-phone class="mr-3 h-4" />
-                    <span class="mr-2 text-base font-semibold uppercase">{{ current($phone)->data->text ?? '' }}</span>
-                </a>
-            @endif
+    <div class="p-2 border border-t-0 border-r-0 border-l-0 border-b border-[#e5e7eb]">
+        <div class="container flex justify-between items-center">
+            <div>
+                locales switcher
+            </div>
+
+            <p class="text-xs font-medium">
+                Get UPTO 40% OFF on your 1st order <a href="{{ route('home') }}" class="underline">SHOP NOW</a>
+            </p>
 
             <div class="flex">
                 @if (setting('social.social_networks'))
@@ -28,23 +29,28 @@
         <div class="container flex justify-between p-2">
 
             {{-- Navegacion Izquierda --}}
-            <div class="flex gap-x-1.5 items-center grow basis-0">
+            <div class="flex gap-x-10 items-center grow basis-0">
 
                 @include('layout.header.drawers.menu')
 
                 <a href="{{ route('home') }}">
-                    <img src="{{ Storage::url(setting('seo.logo')) }}" alt="{{ setting('seo.title') }}"
-                        class="max-h-10 xl:max-h-max">
+                    <img src="{{ setting('seo.logo') ? Storage::url(setting('seo.logo')) : Vite::asset('resources/images/layout/logo.webp') }}"
+                        alt="{{ setting('seo.title') }}" class="max-h-10 max-h-11">
                 </a>
+
+                <div
+                    class="hidden xl:flex [&>a]:uppercase [&>a]:text-sm [&>a:not(:first-child)]:ml-4 [&>a:not(:last-child)]:mr-4 [&>a]:font-circularSTD items-center">
+                    @include('layout.header.sections.menu-links')
+                </div>
+
             </div>
 
 
             {{-- Navegacion Derecha --}}
             <div class="flex justify-end grow basis-0">
-                <div
-                    class="hidden xl:flex [&>a]:uppercase [&>a]:text-sm [&>a:not(:first-child)]:ml-4 [&>a:not(:last-child)]:mr-4 [&>a]:font-circularSTD items-center">
-                    @include('layout.header.sections.menu-links')
-                </div>
+                search
+                cart
+                login
             </div>
 
         </div>

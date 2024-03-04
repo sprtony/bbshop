@@ -1,5 +1,10 @@
 @extends('layout.master')
 
 @section('content')
-    @livewire('avatar')
+    {{-- banners --}}
+    {{-- categories --}}
+    {{-- new products --}}
+    {{-- brands --}}
+    {{-- featured products --}}
+    {{-- services --}}
 @endsection

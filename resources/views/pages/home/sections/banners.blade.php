@@ -6,12 +6,12 @@
     </video>
 
     <div class="container">
-        <div class="absolute bottom-10 md:bottom-16 text-white pl-2">
-            <h1 class="font-circularSTD text-lg md:text-3xl lg:text-5xl">SOLUCIONES</h1>
-            <h1 class="font-circularSTD text-lg md:text-3xl lg:text-5xl font-bold">Tecnológicas</h1>
+        <div class="absolute bottom-10 pl-2 text-white md:bottom-16">
+            <h1 class="text-lg md:text-3xl lg:text-5xl">SOLUCIONES</h1>
+            <h1 class="text-lg font-bold md:text-3xl lg:text-5xl">Tecnológicas</h1>
             <div class="h-5"></div>
             <a href="{{ setting('general.banner_url') }}"
-                class="border-white border-solid px-1 lg:px-3 lg:py-1 border-2 font-redHat text-sm lg:text-lg flex w-fit items-center"><span>Conoce
+                class="flex items-center px-1 text-sm border-2 border-white border-solid lg:py-1 lg:px-3 lg:text-lg w-fit"><span>Conoce
                     más</span><x-heroicon-m-arrow-small-right class="h-7" /></a>
         </div>
     </div>
