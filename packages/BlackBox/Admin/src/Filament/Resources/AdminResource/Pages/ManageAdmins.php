@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\AdminResource\Pages;
+namespace BlackBox\Admin\Filament\Resources\AdminResource\Pages;
 
-use App\Filament\Resources\AdminResource;
+use BlackBox\Admin\Filament\Resources\AdminResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ManageRecords;
 

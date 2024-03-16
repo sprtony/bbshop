@@ -33,6 +33,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\VoltServiceProvider::class,
 
+        BlackBox\Admin\Providers\AdminServiceProvider::class,
         BlackBox\Admin\Providers\AdminPanelProvider::class,
         BlackBox\Customers\Providers\CustomersServiceProvider::class,
         // BlackBox\Catalog\Providers\CatalogServiceProvider::class,

@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use App\Models\{Role, Admin};
+use BlackBox\Admin\Models\{Role, Admin};
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
@@ -25,12 +25,12 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $rol = Role::create([
-            'name' => 'Super Admin',
+            'name' => 'super_admin',
             'guard_name' => 'admin',
         ]);
 
         $admin->assignRole($rol);
 
-        Artisan::call('permissions:sync');
+        // Artisan::call('permissions:sync');
     }
 }

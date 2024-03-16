@@ -21,7 +21,7 @@ class ManageEmail extends SettingsPage
 
     public static function shouldRegisterNavigation(): bool
     {
-        return auth('admin')->user()->can('manage Email');
+        return auth('admin')->user()->can('page_ManageEmail');
     }
 
     public function form(Forms\Form $form): Forms\Form

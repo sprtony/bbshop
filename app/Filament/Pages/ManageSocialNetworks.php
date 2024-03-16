@@ -8,7 +8,7 @@ use Filament\Pages\SettingsPage;
 
 use Guava\FilamentIconPicker\Forms\IconPicker;
 
-use App\Settings\SocialNetworkSettings;
+use App\Settings\SocialNetworksSettings;
 
 class ManageSocialNetworks extends SettingsPage
 {
@@ -18,11 +18,11 @@ class ManageSocialNetworks extends SettingsPage
 
     protected static ?string $title = 'Redes Sociales';
 
-    protected static string $settings = SocialNetworkSettings::class;
+    protected static string $settings = SocialNetworksSettings::class;
 
     public static function shouldRegisterNavigation(): bool
     {
-        return auth('admin')->user()->can('manage SocialNetworks');
+        return auth('admin')->user()->can('page_ManageSocialNetworks');
     }
 
     public function form(Form $form): Form

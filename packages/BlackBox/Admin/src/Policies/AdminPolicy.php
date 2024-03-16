@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Policies;
+namespace BlackBox\Admin\Policies;
 
-use App\Models\Admin;
+use BlackBox\Admin\Models\Admin;
 
 class AdminPolicy
 {
@@ -11,7 +11,7 @@ class AdminPolicy
      */
     public function viewAny(Admin $user): bool
     {
-        return $user->can('view-any Admin');
+        return $user->can('view_any_admin');
     }
 
     /**
@@ -19,7 +19,7 @@ class AdminPolicy
      */
     public function create(Admin $user): bool
     {
-        return $user->can('create Admin');
+        return $user->can('create_admin');
     }
 
     /**
@@ -27,7 +27,7 @@ class AdminPolicy
      */
     public function update(Admin $user, Admin $admin): bool
     {
-        return $user->can('update Admin');
+        return $user->can('update_admin');
     }
 
     /**
@@ -35,6 +35,6 @@ class AdminPolicy
      */
     public function delete(Admin $user, Admin $admin): bool
     {
-        return $user->can('delete Admin') && !$admin->isSuperAdmin();
+        return $user->can('delete_admin') && !$admin->isSuperAdmin();
     }
 }

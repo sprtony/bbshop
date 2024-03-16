@@ -11,6 +11,7 @@ class EmailSettings extends Settings
     public ?string $logo;
     public ?string $color;
 
+
     public static function group(): string
     {
         return 'email';

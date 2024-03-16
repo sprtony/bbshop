@@ -3,7 +3,7 @@
 namespace BlackBox\Admin\Providers;
 
 use App\Filament\Pages;
-use App\Filament\Resources;
+use BlackBox\Admin\Filament\Resources;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -11,7 +11,6 @@ use Filament\Pages as BasePages;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\SpatieLaravelTranslatablePlugin;
-use Filament\Support\Colors\Color;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
@@ -21,6 +20,7 @@ use Illuminate\Session\Middleware\StartSession;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -41,16 +41,12 @@ class AdminPanelProvider extends PanelProvider
                 // 'Blog',
             ])
             ->resources([
-                // Resources\ContactMessageResource::class,
-                // Resources\AdminResource::class,
-                // Resources\RoleResource::class,
-                // Resources\PermissionResource::class,
+                Resources\AdminResource::class,
             ])
             ->pages([
                 BasePages\Dashboard::class,
-                Pages\ManageGeneral::class,
+                Pages\ManageSite::class,
                 Pages\ManageEmail::class,
-                Pages\ManageSeo::class,
                 Pages\ManageSocialNetworks::class,
             ])
             ->middleware([
@@ -69,6 +65,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authGuard('admin')
             ->plugins([
+                FilamentShieldPlugin::make(),
                 SpatieLaravelTranslatablePlugin::make()->defaultLocales(['es', 'en']),
             ]);
     }

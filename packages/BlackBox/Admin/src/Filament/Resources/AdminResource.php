@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace BlackBox\Admin\Filament\Resources;
 
 use Illuminate\Database\Eloquent\Builder;
 
@@ -10,8 +10,8 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 
-use App\Filament\Resources\AdminResource\Pages;
-use App\Models\Admin;
+use BlackBox\Admin\Filament\Resources\AdminResource\Pages;
+use BlackBox\Admin\Models\Admin;
 
 class AdminResource extends Resource
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Quimaira\Admin\Models;
+namespace BlackBox\Admin\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
@@ -15,7 +15,8 @@ use Spatie\Permission\Traits\HasRoles;
 
 class Admin extends Authenticatable implements FilamentUser
 {
-    use HasApiTokens, HasFactory, HasRoles, HasSuperAdmin, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable;
+    use HasRoles;
 
     protected $fillable = [
         'name',
