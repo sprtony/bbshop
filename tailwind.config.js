@@ -13,11 +13,6 @@ module.exports = {
             center: true,
         },
     },
-    variants: {
-        extend: {
-            backgroundColor: ["active"],
-        },
-    },
     content: {
         relative: true,
         transform: (content) => content.replace(/taos:/g, ""),

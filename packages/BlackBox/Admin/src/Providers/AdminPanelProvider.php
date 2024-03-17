@@ -21,6 +21,7 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
+use Filament\View\PanelsRenderHook;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -32,8 +33,9 @@ class AdminPanelProvider extends PanelProvider
             ->path(config('app.admin_url'))
             ->login()
             ->sidebarCollapsibleOnDesktop()
+            ->databaseNotifications()
             ->renderHook(
-                'panels::user-menu.before',
+                PanelsRenderHook::TOPBAR_END,
                 fn (): string => Blade::render('<a href="' . route('home') . '" target="_blank"><x-heroicon-s-home class="h-5" /></a>')
             )
             ->navigationGroups([

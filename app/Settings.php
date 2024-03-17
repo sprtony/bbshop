@@ -2,31 +2,40 @@
 
 namespace App;
 
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Schema;
 use Spatie\LaravelSettings\Models\SettingsProperty;
 
 class Settings
 {
-    public $setting_cache = null;
 
     public function setting($key, $default = null)
     {
+
+        $setting_cache = Cache::rememberForever('settings', fn () => $this->getSettings());
+
+        [$group,$name] = explode('.', $key);
+
+        return $setting_cache[$group][$name] ?? $default;
+
+    }
+
+    public function updateCache()
+    {
+        Cache::put('settings', $this->getSettings());
+    }
+
+    private function getSettings()
+    {
+        $settings = [];
         if (! Schema::hasTable('settings')) {
-            return $default;
+            return $settings;
         }
 
-        if ($this->setting_cache === null) {
-            foreach (SettingsProperty::all() as $setting) {
-                @$this->setting_cache[$setting->group][$setting->name] = json_decode($setting->getAttribute('payload'));
-            }
+        foreach (SettingsProperty::all() as $setting) {
+            $settings[$setting->group][$setting->name] = json_decode($setting->getAttribute('payload'));
         }
 
-        $parts = explode('.', $key);
-
-        if (count($parts) == 2) {
-            return @$this->setting_cache[$parts[0]][$parts[1]] ?: $default;
-        } else {
-            return @$this->setting_cache[$parts[0]] ?: $default;
-        }
+        return $settings;
     }
 }

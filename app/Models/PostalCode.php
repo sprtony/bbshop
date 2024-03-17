@@ -3,10 +3,21 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Sushi\Sushi;
 
 class PostalCode extends Model
 {
-    protected $table = 'postal_codes';
+    use Sushi;
 
-    public $timestamps = false;
+    public function getRows()
+    {
+        require_once base_path('data/postal_codes.php');
+
+        return $postal_codes;
+    }
+
+    protected function sushiShouldCache()
+    {
+        return true;
+    }
 }

@@ -4,10 +4,11 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use BlackBox\Admin\Models\{Role, Admin};
+use BlackBox\Admin\Models\Admin;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
+use Spatie\Permission\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {
@@ -24,13 +25,13 @@ class DatabaseSeeder extends Seeder
             'remember_token' => Str::random(10),
         ]);
 
-        $rol = Role::create([
-            'name' => 'super_admin',
-            'guard_name' => 'admin',
-        ]);
+        // $rol = Role::create([
+        //     'name' => 'super_admin',
+        //     'guard_name' => 'admin',
+        // ]);
+        //
+        // $admin->assignRole($rol);
 
-        $admin->assignRole($rol);
-
-        // Artisan::call('permissions:sync');
+        Artisan::call('shield:super-admin');
     }
 }

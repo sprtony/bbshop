@@ -2,7 +2,6 @@
 
 use Spatie\LaravelSettings\Migrations\SettingsMigration;
 use Spatie\LaravelSettings\Migrations\SettingsBlueprint;
-use BlackBox\Admin\Models\Permission;
 
 return new class extends SettingsMigration
 {
@@ -13,7 +12,5 @@ return new class extends SettingsMigration
             $blueprint->add('phones', null);
             $blueprint->add('social_networks', null);
         });
-
-        Permission::create(['name' => 'manage SocialNetworks']);
     }
 };

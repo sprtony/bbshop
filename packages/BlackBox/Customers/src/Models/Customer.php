@@ -1,6 +1,6 @@
 <?php
 
-namespace Quimaira\Customers\Models;
+namespace BlackBox\Customers\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

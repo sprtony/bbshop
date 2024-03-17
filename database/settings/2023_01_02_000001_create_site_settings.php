@@ -2,7 +2,6 @@
 
 use Spatie\LaravelSettings\Migrations\SettingsBlueprint;
 use Spatie\LaravelSettings\Migrations\SettingsMigration;
-use BlackBox\Admin\Models\Permission;
 
 return new class extends SettingsMigration
 {
@@ -23,6 +22,5 @@ return new class extends SettingsMigration
             $blueprint->add('keywords', null);
             $blueprint->add('og_image', null);
         });
-        Permission::create(['name' => 'manage Site']);
     }
 };
