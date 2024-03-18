@@ -1,6 +1,6 @@
 <?php
 
-namespace Quimaira\Catalog\Filament\Resources;
+namespace BlackBox\Catalog\Filament\Resources;
 
 use Illuminate\Support\Str;
 
@@ -14,8 +14,8 @@ use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 use Archilex\ToggleIconColumn\Columns\ToggleIconColumn;
 use CodeWithDennis\FilamentSelectTree\SelectTree;
 
-use Quimaira\Catalog\Filament\Resources\ProductResource\Pages;
-use Quimaira\Catalog\Models\Product;
+use BlackBox\Catalog\Filament\Resources\ProductResource\Pages;
+use BlackBox\Catalog\Models\Product;
 
 class ProductResource extends Resource
 {
@@ -44,25 +44,12 @@ class ProductResource extends Resource
                                 ->unique(ignorable: fn ($record) => $record)
                                 ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', slugify($state)))
                                 ->required(),
-                            //BRANDS
-                            Forms\Components\Select::make('brand')->label('Marca')->relationship('brand', 'name')->preload()
-                                ->createOptionForm([
-                                    Forms\Components\TextInput::make('name')->label('Nombre')
-                                        ->live(onBlur: true)
-                                        ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state)))
-                                        ->required(),
-                                    Forms\Components\TextInput::make('slug')->label('Url')
-                                        ->live(onBlur: true)
-                                        ->unique(ignorable: fn ($record) => $record)
-                                        ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', slugify($state)))
-                                        ->required(),
-                                    Forms\Components\FileUpload::make('icon')->label('Logo 250*100')->image()->directory('brands')->optimize('webp'),
-                                    Forms\Components\Toggle::make('active')->label('Activo')->required(),
 
-                                ]),
-                            // Forms\Components\TextInput::make('price')->label('Precio')->numeric()->prefix('$'),
-                            Forms\Components\TextInput::make('capacity')->label('Capacidad'),
-                            Forms\Components\FileUpload::make('datasheet')->label('Ficha tecnica')->directory('products'),
+                            //BRANDS
+                            Forms\Components\Select::make('brand')->label('Marca')->relationship('brand', 'name')
+                                ->preload()->createOptionForm(BrandResource::getFields()),
+
+                            Forms\Components\TextInput::make('price')->label('Precio')->numeric()->prefix('$'),
                         ])->columns(2),
 
                         //Toggles
@@ -87,22 +74,32 @@ class ProductResource extends Resource
                                 ->preload()
                                 ->label('Productos relacionados'),
                         ])->columnSpanFull(),
+
                         TinyEditor::make('description')->label('Descipción')->columnSpanFull(),
                     ])->icon('heroicon-m-cube'),
-                    Forms\Components\Tabs\Tab::make('SEO')->schema([
-                        Forms\Components\TextInput::make('meta_title')->columnSpan(1),
-                        Forms\Components\TextInput::make('meta_keywords')->columnSpan(1),
-                        Forms\Components\Textarea::make('meta_description')->columnSpanFull(),
-                    ])->columns(2)->icon('vaadin-globe-wire'),
-                    Forms\Components\Tabs\Tab::make('Multimedia')->schema([
-                        Forms\Components\FileUpload::make('thumbnail')->label('Imagen Principal 1000*1000')->image()->directory('products')->optimize('webp'),
-                        Forms\Components\FileUpload::make('gallery')->label('Galeria (Imagen 1000*1000)')->image()->multiple()->reorderable()->directory('products')->optimize('webp'),
-                        Forms\Components\TextInput::make('video')->label('Link de Youtube')->url(),
-                    ])->icon('heroicon-m-camera')
+                    self::getSEOTab(),
+                    self::getMultimediaTab(),
+
                 ])->columnSpanFull()->persistTabInQueryString(),
 
 
             ]);
+    }
+
+    private static function getSEOTab():Forms\Components\Tabs\Tab{
+        return Forms\Components\Tabs\Tab::make('SEO')->schema([
+                    Forms\Components\TextInput::make('meta_title')->columnSpan(1),
+                    Forms\Components\TextInput::make('meta_keywords')->columnSpan(1),
+                    Forms\Components\Textarea::make('meta_description')->columnSpanFull(),
+                ])->columns(2)->icon('vaadin-globe-wire');
+    }
+
+    private static function getMultimediaTab():Forms\Components\Tabs\Tab{
+        return Forms\Components\Tabs\Tab::make('Multimedia')->schema([
+                    Forms\Components\FileUpload::make('thumbnail')->label('Imagen Principal 1000*1000')->image()->directory('products')->optimize('webp'),
+                    Forms\Components\FileUpload::make('gallery')->label('Galeria (Imagen 1000*1000)')->image()->multiple()->reorderable()->directory('products')->optimize('webp'),
+                    Forms\Components\TextInput::make('video')->label('Link de Youtube')->url(),
+                ])->icon('heroicon-m-camera');
     }
 
     public static function table(Table $table): Table

@@ -1,8 +1,8 @@
 <?php
 
-namespace Quimaira\Catalog\Filament\Resources\CategoryResource\Pages;
+namespace BlackBox\Catalog\Filament\Resources\CategoryResource\Pages;
 
-use Quimaira\Catalog\Filament\Resources\CategoryResource;
+use BlackBox\Catalog\Filament\Resources\CategoryResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 

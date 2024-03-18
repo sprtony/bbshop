@@ -21,6 +21,7 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
+use BlackBox\Catalog\Filament\CatalogPlugin;
 use Filament\View\PanelsRenderHook;
 
 class AdminPanelProvider extends PanelProvider
@@ -33,11 +34,11 @@ class AdminPanelProvider extends PanelProvider
             ->path(config('app.admin_url'))
             ->login()
             ->sidebarCollapsibleOnDesktop()
-            ->databaseNotifications()
             ->renderHook(
-                PanelsRenderHook::TOPBAR_END,
+                PanelsRenderHook::USER_MENU_BEFORE,
                 fn (): string => Blade::render('<a href="' . route('home') . '" target="_blank"><x-heroicon-s-home class="h-5" /></a>')
             )
+            ->databaseNotifications()
             ->navigationGroups([
                 // 'Catalogo',
                 // 'Blog',
@@ -69,6 +70,7 @@ class AdminPanelProvider extends PanelProvider
             ->plugins([
                 FilamentShieldPlugin::make(),
                 SpatieLaravelTranslatablePlugin::make()->defaultLocales(['es', 'en']),
+                CatalogPlugin::make(),
             ]);
     }
 }

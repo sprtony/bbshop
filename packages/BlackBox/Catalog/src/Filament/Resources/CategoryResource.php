@@ -1,6 +1,6 @@
 <?php
 
-namespace Quimaira\Catalog\Filament\Resources;
+namespace BlackBox\Catalog\Filament\Resources;
 
 use Illuminate\Support\Str;
 
@@ -8,8 +8,8 @@ use Filament\Forms;
 use Filament\Forms\{Form, Set};
 use Filament\Resources\Resource;
 
-use Quimaira\Catalog\Filament\Resources\CategoryResource\Pages;
-use Quimaira\Catalog\Models\Category;
+use BlackBox\Catalog\Filament\Resources\CategoryResource\Pages;
+use BlackBox\Catalog\Models\Category;
 
 class CategoryResource extends Resource
 {
@@ -25,19 +25,21 @@ class CategoryResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')->label('Nombre')
-                    ->live(onBlur: true)
-                    ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state)))
-                    ->required(),
-                Forms\Components\TextInput::make('slug')->label('Url')
-                    ->live(onBlur: true)
-                    ->unique(ignorable: fn ($record) => $record)
-                    ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', slugify($state)))
-                    ->required(),
-                Forms\Components\FileUpload::make('image')->label('Banner 1900*260')->image()->directory('categories')->optimize('webp'),
-                Forms\Components\FileUpload::make('mobile')->label('Banner movil 700*700')->image()->directory('categories')->optimize('webp'),
-                Forms\Components\FileUpload::make('icon')->label('Icono svg')->directory('categories'),
-                Forms\Components\Toggle::make('visible')->label('Visible')->required(),
+                Forms\Components\Grid::make()->schema([
+                    Forms\Components\TextInput::make('name')->label('Nombre')
+                        ->live(onBlur: true)
+                        ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state)))
+                        ->required()->columnSpan(1),
+                    Forms\Components\TextInput::make('slug')->label('Url')
+                        ->live(onBlur: true)
+                        ->unique(ignorable: fn ($record) => $record)
+                        ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', slugify($state)))
+                        ->required(),
+                    Forms\Components\FileUpload::make('image')->label('Banner 1900*260')->image()->directory('categories')->optimize('webp'),
+                    Forms\Components\FileUpload::make('mobile')->label('Banner movil 700*700')->image()->directory('categories')->optimize('webp'),
+                    Forms\Components\FileUpload::make('icon')->directory('categories'),
+                    Forms\Components\Toggle::make('visible')->label('Visible')->required(),
+                ])->columns(2),
             ]);
     }
 
@@ -52,7 +54,6 @@ class CategoryResource extends Resource
     {
         return [
             'index' => Pages\TreeCategory::route('/'),
-            'edit' => Pages\EditCategory::route('/{record}')
         ];
     }
 }

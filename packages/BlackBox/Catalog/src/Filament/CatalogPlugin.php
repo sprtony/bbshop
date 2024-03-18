@@ -1,8 +1,8 @@
 <?php
 
-namespace Quimaira\Catalog\Filament;
+namespace BlackBox\Catalog\Filament;
 
-use Quimaira\Catalog\Filament\Resources\{CategoryResource, ProductResource, BrandResource, QuoteResource};
+use BlackBox\Catalog\Filament\Resources\{CategoryResource, ProductResource, BrandResource};
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
@@ -26,7 +26,6 @@ class CatalogPlugin implements Plugin
                 CategoryResource::class,
                 BrandResource::class,
                 ProductResource::class,
-                QuoteResource::class,
             ]);
     }
 

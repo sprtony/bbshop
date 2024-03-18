@@ -17,20 +17,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $admin = Admin::create([
+        Admin::create([
             'name' => 'Super Administrador',
             'email' => 'admin@bbshop.com',
             'email_verified_at' => now(),
             'password' => 'admin123',
             'remember_token' => Str::random(10),
         ]);
-
-        // $rol = Role::create([
-        //     'name' => 'super_admin',
-        //     'guard_name' => 'admin',
-        // ]);
-        //
-        // $admin->assignRole($rol);
 
         Artisan::call('shield:super-admin');
     }

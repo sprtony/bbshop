@@ -1,23 +1,18 @@
 <?php
 
-namespace Quimaira\Catalog\Filament\Resources\CategoryResource\Pages;
+namespace BlackBox\Catalog\Filament\Resources\CategoryResource\Pages;
 
-use Filament\Pages\Actions\CreateAction;
-use SolutionForest\FilamentTree\Actions;
-use SolutionForest\FilamentTree\Concern;
+use BlackBox\Admin\Actions;
+
 use SolutionForest\FilamentTree\Resources\Pages\TreePage as BasePage;
-use SolutionForest\FilamentTree\Support\Utils;
 
-
-use Quimaira\Catalog\Filament\Resources\CategoryResource;
-use Quimaira\Catalog\Models\Category;
+use BlackBox\Catalog\Filament\Resources\CategoryResource;
 
 class TreeCategory extends BasePage
 {
     protected static string $resource = CategoryResource::class;
 
     protected static int $maxDepth = 2;
-
 
     protected function getActions(): array
     {
@@ -29,11 +24,13 @@ class TreeCategory extends BasePage
     protected function getTreeActions(): array
     {
         return [
-            Actions\Action::make('edit')
-                ->url(fn (Category $category) => CategoryResource::getUrl('edit', ['record' => $category]))
-                ->icon('heroicon-m-pencil-square')
-                ->iconButton(),
-            Actions\DeleteAction::make(),
+            // Actions\Action::make('edit')
+            //     ->url(fn (Category $category) => CategoryResource::getUrl('edit', ['record' => $category]))
+            //     ->icon('heroicon-m-pencil-square')
+            //     ->iconButton(),
+            Actions\TreeViewAction::make(),
+            Actions\TreeEditAction::make(),
+            Actions\TreeDeleteAction::make(),
         ];
     }
 

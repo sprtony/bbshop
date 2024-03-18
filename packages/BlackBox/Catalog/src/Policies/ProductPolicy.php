@@ -1,9 +1,9 @@
 <?php
 
-namespace Quimaira\Catalog\Policies;
+namespace BlackBox\Catalog\Policies;
 
-use App\Models\Admin;
-use Quimaira\Catalog\Models\Product;
+use BlackBox\Admin\Models\Admin;
+use BlackBox\Catalog\Models\Product;
 
 class ProductPolicy
 {

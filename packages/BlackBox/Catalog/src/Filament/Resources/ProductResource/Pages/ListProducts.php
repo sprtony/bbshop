@@ -1,8 +1,8 @@
 <?php
 
-namespace Quimaira\Catalog\Filament\Resources\ProductResource\Pages;
+namespace BlackBox\Catalog\Filament\Resources\ProductResource\Pages;
 
-use Quimaira\Catalog\Filament\Resources\ProductResource;
+use BlackBox\Catalog\Filament\Resources\ProductResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
