@@ -13,6 +13,6 @@ class BlogCategory extends Model
         'name',
         'slug',
         'order',
-        'active'
+        'active',
     ];
 }

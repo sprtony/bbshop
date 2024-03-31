@@ -2,18 +2,18 @@
 
 namespace App\Filament\Pages;
 
+use App\Settings\SocialNetworksSettings;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Pages\SettingsPage;
-
 use Guava\FilamentIconPicker\Forms\IconPicker;
-
-use App\Settings\SocialNetworksSettings;
 
 class ManageSocialNetworks extends SettingsPage
 {
     protected static ?string $navigationIcon = 'heroicon-o-share';
+
     protected static ?string $navigationLabel = 'Redes Sociales';
+
     protected static ?string $navigationGroup = 'Configuraciones';
 
     protected static ?string $title = 'Redes Sociales';

@@ -5,7 +5,7 @@ return [
     'generator' => [
 
         'model_directories' => [
-            __DIR__ . '../Models/',
+            __DIR__.'../Models/',
         ],
 
         'custom_models' => [],

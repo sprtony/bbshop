@@ -1,9 +1,8 @@
 <?php
 
+use BlackBox\Customers\Http\Controllers\Auth\EmailVerificationController;
+use BlackBox\Customers\Http\Controllers\Auth\LogoutController;
 use Illuminate\Support\Facades\Route;
-
-use BlackBox\Customers\Http\Controllers\Auth\{EmailVerificationController, LogoutController};
-
 use Livewire\Volt\Volt;
 
 Route::middleware('guest')->group(function () {
@@ -16,7 +15,6 @@ Route::prefix('password/reset')->group(function () {
     Volt::route('{token}', 'auth.passwords.reset')->name('password.reset');
 });
 
-
 Route::middleware('auth')->group(function () {
 
     Volt::route('email/verify', 'auth.verify')
@@ -25,7 +23,6 @@ Route::middleware('auth')->group(function () {
 
     Volt::route('password/confirm', 'auth.passwords.confirm')
         ->name('password.confirm');
-
 
     Route::get('email/verify/{id}/{hash}', EmailVerificationController::class)
         ->middleware('signed')

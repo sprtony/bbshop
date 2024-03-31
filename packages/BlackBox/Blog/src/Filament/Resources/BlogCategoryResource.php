@@ -2,16 +2,14 @@
 
 namespace Quimaira\Blog\Filament\Resources;
 
-use Illuminate\Support\Str;
-
+use Archilex\ToggleIconColumn\Columns\ToggleIconColumn;
 use Filament\Forms;
-use Filament\Forms\{Form, Set};
+use Filament\Forms\Form;
+use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-
-use Archilex\ToggleIconColumn\Columns\ToggleIconColumn;
-
+use Illuminate\Support\Str;
 use Quimaira\Blog\Filament\Resources\BlogCategoryResource\Pages;
 use Quimaira\Blog\Models\BlogCategory;
 
@@ -20,9 +18,11 @@ class BlogCategoryResource extends Resource
     protected static ?string $model = BlogCategory::class;
 
     protected static ?string $modelLabel = 'categoria';
+
     protected static ?string $pluralModelLabel = 'categorias';
 
     protected static ?string $navigationIcon = 'heroicon-o-folder';
+
     protected static ?string $navigationGroup = 'Blog';
 
     public static function form(Form $form): Form

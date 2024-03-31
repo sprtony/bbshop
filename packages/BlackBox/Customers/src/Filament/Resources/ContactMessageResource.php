@@ -2,20 +2,19 @@
 
 namespace App\Filament\Resources;
 
-use Filament\Resources\Resource;
-use Filament\Forms;
-use Filament\Tables;
-
-use pxlrbt\FilamentExcel\Actions;
-
 use App\Filament\Resources\ContactMessageResource\Pages;
 use App\Models\ContactMessage;
+use Filament\Forms;
+use Filament\Resources\Resource;
+use Filament\Tables;
+use pxlrbt\FilamentExcel\Actions;
 
 class ContactMessageResource extends Resource
 {
     protected static ?string $model = ContactMessage::class;
 
     protected static ?string $modelLabel = 'Mensaje de contacto';
+
     protected static ?string $pluralModelLabel = 'Mensajes de contacto';
 
     protected static ?string $navigationIcon = 'heroicon-o-chat-bubble-bottom-center-text';
@@ -63,7 +62,7 @@ class ContactMessageResource extends Resource
                 Tables\Actions\DeleteAction::make()->button(),
             ], position: Tables\Enums\ActionsPosition::BeforeColumns)
             ->headerActions([
-                Actions\Tables\ExportAction::make()->label('Descargar excel')
+                Actions\Tables\ExportAction::make()->label('Descargar excel'),
             ]);
     }
 

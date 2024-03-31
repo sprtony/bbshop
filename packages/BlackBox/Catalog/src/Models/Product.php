@@ -3,9 +3,10 @@
 namespace BlackBox\Catalog\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\{HasMany, BelongsTo, BelongsToMany};
-
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
 {
@@ -14,23 +15,27 @@ class Product extends Model
     protected $fillable = [
         'sku',
         'name',
-        'description',
         'slug',
+        'description',
+        'can_be_sale',
+        'can_manage_inventory',
+        'can_be_shipped',
         'new',
         'featured',
         'active',
+        'private',
         'thumbnail',
         'gallery',
         'price',
-        'order',
-        'video',
+        'special_price',
+        'special_price_from',
+        'special_price_to',
+        'inventory',
         'meta_title',
         'meta_description',
         'meta_keywords',
-
-        'promotion',
-        'datasheet',
-        'capacity'
+        'parent_id',
+        'brand_id',
     ];
 
     protected $casts = [
@@ -43,8 +48,10 @@ class Product extends Model
         if ($value) {
             $pattern = '#^(?:https?://|//)?(?:www\.|m\.)?(?:youtu\.be/|youtube\.com/(?:embed/|v/|watch\?v=|watch\?.+&v=))([\w-]{11})(?![\w-])#';
             preg_match($pattern, $value, $matches);
+
             return (isset($matches[1])) ? $matches[1] : '';
         }
+
         return null;
     }
 
@@ -62,5 +69,10 @@ class Product extends Model
     {
         return $this->belongsToMany(static::class, 'product_relations', 'parent_id', 'child_id')
             ->limit(4);
+    }
+
+    public function attributesProduct(): HasMany
+    {
+        return $this->hasMany(AttributeProduct::class);
     }
 }

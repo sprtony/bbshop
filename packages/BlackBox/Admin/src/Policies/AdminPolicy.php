@@ -35,6 +35,6 @@ class AdminPolicy
      */
     public function delete(Admin $user, Admin $admin): bool
     {
-        return $user->can('delete_admin') && !$admin->isSuperAdmin();
+        return $user->can('delete_admin') && ! $admin->isSuperAdmin();
     }
 }

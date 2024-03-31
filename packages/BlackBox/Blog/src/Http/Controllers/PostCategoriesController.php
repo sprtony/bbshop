@@ -3,7 +3,8 @@
 namespace Quimaira\Blog\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Quimaira\Blog\Models\{BlogCategory, BlogPost};
+use Quimaira\Blog\Models\BlogCategory;
+use Quimaira\Blog\Models\BlogPost;
 
 class PostCategoriesController extends Controller
 {
@@ -11,6 +12,7 @@ class PostCategoriesController extends Controller
     {
         if (is_null($slug)) {
             $category = null;
+
             return view('pages.blog.index', compact('category'));
         }
 
@@ -20,6 +22,7 @@ class PostCategoriesController extends Controller
 
         if ($post = BlogPost::where(['slug' => $slug, 'active' => 1])->first()) {
             $posts = BlogPost::where('active', 1)->where('slug', '!=', $slug)->limit(5)->get();
+
             return view('pages.blog.view', compact('post', 'posts'));
         }
 

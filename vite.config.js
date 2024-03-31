@@ -6,15 +6,21 @@ import laravel from "laravel-vite-plugin";
 export default defineConfig({
     plugins: [
         laravel({
-            input: ["resources/css/app.css", "resources/js/app.js"],
+            input: [
+                "resources/css/app.css",
+                "resources/css/filament.css",
+                "resources/js/app.js",
+            ],
             refresh: true,
         }),
 
         // PluginCritical({
-        //     criticalUrl: "https://nystudio107.com/",
-        //     criticalBase: "./",
+        //     criticalUrl: process.env.APP_URL,
+        //     criticalBase: "./public",
         //     criticalPages: [{ uri: "", template: "index" }],
         //     criticalConfig: {},
+        //
+        //     apply: "build",
         // }),
     ],
 });

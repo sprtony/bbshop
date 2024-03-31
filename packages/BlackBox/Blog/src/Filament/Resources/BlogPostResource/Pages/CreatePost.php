@@ -2,9 +2,8 @@
 
 namespace Quimaira\Blog\Filament\Resources\BlogPostResource\Pages;
 
-use Quimaira\Blog\Filament\Resources\BlogPostResource;
-use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
+use Quimaira\Blog\Filament\Resources\BlogPostResource;
 
 class CreatePost extends CreateRecord
 {

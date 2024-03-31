@@ -2,8 +2,9 @@
 
 namespace BlackBox\Catalog\Filament;
 
-use BlackBox\Catalog\Filament\Resources\{CategoryResource, ProductResource, BrandResource};
-
+use BlackBox\Catalog\Filament\Resources\BrandResource;
+use BlackBox\Catalog\Filament\Resources\CategoryResource;
+use BlackBox\Catalog\Filament\Resources\ProductResource;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 

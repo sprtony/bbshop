@@ -2,20 +2,20 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Resources\BannerResource\Pages;
+use App\Models\Banner;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 
-use App\Filament\Resources\BannerResource\Pages;
-use App\Models\Banner;
-
 class BannerResource extends Resource
 {
     protected static ?string $model = Banner::class;
 
     protected static ?string $navigationIcon = 'heroicon-s-photo';
+
     protected static ?string $navigationGroup = 'Control de accesos';
 
     public static function form(Form $form): Form

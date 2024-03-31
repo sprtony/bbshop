@@ -2,23 +2,24 @@
 
 namespace BlackBox\Catalog\Filament\Resources;
 
-use Illuminate\Support\Str;
-
-use Filament\Forms;
-use Filament\Forms\{Form, Set};
-use Filament\Resources\Resource;
-
 use BlackBox\Catalog\Filament\Resources\CategoryResource\Pages;
 use BlackBox\Catalog\Models\Category;
+use Filament\Forms;
+use Filament\Forms\Form;
+use Filament\Forms\Set;
+use Filament\Resources\Resource;
+use Illuminate\Support\Str;
 
 class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
 
     protected static ?string $modelLabel = 'categoria';
+
     protected static ?string $pluralModelLabel = 'categorias';
 
     protected static ?string $navigationIcon = 'heroicon-o-folder';
+
     protected static ?string $navigationGroup = 'Catalogo';
 
     public static function form(Form $form): Form

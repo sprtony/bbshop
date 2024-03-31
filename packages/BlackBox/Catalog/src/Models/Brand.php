@@ -16,6 +16,6 @@ class Brand extends Model
         'mobile',
         'icon',
         'order',
-        'active'
+        'active',
     ];
 }

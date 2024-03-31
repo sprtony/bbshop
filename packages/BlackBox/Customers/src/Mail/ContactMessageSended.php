@@ -2,12 +2,13 @@
 
 namespace App\Mail;
 
+use App\Models\ContactMessage;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\{Content, Envelope, Address};
+use Illuminate\Mail\Mailables\Address;
+use Illuminate\Mail\Mailables\Content;
+use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
-
-use App\Models\ContactMessage;
 
 class ContactMessageSended extends Mailable
 {
@@ -30,13 +31,12 @@ class ContactMessageSended extends Mailable
             $bcc = array_map(fn ($email) => new Address($email), setting('email.bcc'));
         }
 
-
         return new Envelope(
             from: new Address($this->contact->email, $this->contact->name),
             bcc: array_merge([
-                new Address('grupoquimaira@gmail.com')
+                new Address('grupoquimaira@gmail.com'),
             ], $bcc),
-            subject: 'Mensaje de contacto enviado desde ' . config('app.url'),
+            subject: 'Mensaje de contacto enviado desde '.config('app.url'),
             to: [new Address(setting('email.email'))]
         );
     }

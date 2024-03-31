@@ -2,10 +2,9 @@
 
 namespace App\Filament\Pages;
 
+use App\Settings\EmailSettings;
 use Filament\Forms;
 use Filament\Pages\SettingsPage;
-
-use App\Settings\EmailSettings;
 
 class ManageEmail extends SettingsPage
 {

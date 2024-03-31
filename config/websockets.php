@@ -23,10 +23,10 @@ return [
      */
     'apps' => [
         [
-            'id' => "12345",
+            'id' => '12345',
             'name' => env('APP_NAME'),
-            'key' => "12345",
-            'secret' => "12345",
+            'key' => '12345',
+            'secret' => '12345',
             'path' => env('PUSHER_APP_PATH'),
             'capacity' => null,
             'enable_client_messages' => false,

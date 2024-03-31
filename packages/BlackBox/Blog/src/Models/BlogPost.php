@@ -18,11 +18,11 @@ class BlogPost extends Model
         'description',
         'content',
         'tags',
-        'active'
+        'active',
     ];
 
     protected $casts = [
         'tags' => 'array',
-        'date' => 'date'
+        'date' => 'date',
     ];
 }

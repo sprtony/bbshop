@@ -2,9 +2,10 @@
 
 namespace Quimaira\Catalog\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Quimaira\Catalog\Models\{Brand, Category, Product};
+use Illuminate\Http\Request;
+use Quimaira\Catalog\Models\Category;
+use Quimaira\Catalog\Models\Product;
 
 class ProductsCategoriesController extends Controller
 {
@@ -12,6 +13,7 @@ class ProductsCategoriesController extends Controller
     {
         if ($request->fallbackPlaceholder == 'productos') {
             $category = null;
+
             return view('pages.products.index', compact('category'));
         }
         if ($category = Category::where(['slug' => $request->fallbackPlaceholder, 'visible' => 1])->first()) {

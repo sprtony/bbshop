@@ -13,7 +13,7 @@ return [
     'force_https' => env('APP_HTTPS', 'false'),
     'asset_url' => env('ASSET_URL'),
     'timezone' => 'UTC',
-    'locale' => env('APP_LANG', 'en'),
+    'locale' => env('APP_LOCALE', 'en'),
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
     'key' => env('APP_KEY'),
@@ -23,7 +23,6 @@ return [
         'driver' => 'file',
         // 'store'  => 'redis',
     ],
-
 
     'providers' => ServiceProvider::defaultProviders()->merge([
         App\Providers\AppServiceProvider::class,

@@ -2,9 +2,9 @@
 
 namespace Quimaira\Blog\Filament\Resources\BlogCategoryResource\Pages;
 
-use Quimaira\Blog\Filament\Resources\BlogCategoryResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
+use Quimaira\Blog\Filament\Resources\BlogCategoryResource;
 
 class EditCategory extends EditRecord
 {

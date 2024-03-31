@@ -2,16 +2,17 @@
 
 namespace App\Filament\Pages;
 
+use App\Settings\SiteSettings;
 use Filament\Forms;
 use Filament\Pages\SettingsPage;
 use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 
-use App\Settings\SiteSettings;
-
 class ManageSite extends SettingsPage
 {
     protected static ?string $navigationIcon = 'heroicon-o-cog-6-tooth';
+
     protected static ?string $navigationLabel = 'General';
+
     protected static ?string $navigationGroup = 'Configuraciones';
 
     protected static ?string $title = 'Configuraciones del Sitio';

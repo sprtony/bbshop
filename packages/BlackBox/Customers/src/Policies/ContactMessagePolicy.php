@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\ContactMessage;
 use App\Models\Admin;
+use App\Models\ContactMessage;
 
 class ContactMessagePolicy
 {

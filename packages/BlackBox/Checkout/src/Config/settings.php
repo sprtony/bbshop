@@ -6,7 +6,7 @@ return [
 
     'migrations_paths' => [
 
-        __DIR__ . '../Database/Settings/',
+        __DIR__.'../Database/Settings/',
     ],
 
 ];

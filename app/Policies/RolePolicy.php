@@ -3,8 +3,8 @@
 namespace App\Policies;
 
 use BlackBox\Admin\Models\Admin;
-use Spatie\Permission\Models\Role;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Spatie\Permission\Models\Role;
 
 class RolePolicy
 {
@@ -12,9 +12,6 @@ class RolePolicy
 
     /**
      * Determine whether the admin can view any models.
-     *
-     * @param  \BlackBox\Admin\Models\Admin  $admin
-     * @return bool
      */
     public function viewAny(Admin $admin): bool
     {
@@ -23,10 +20,6 @@ class RolePolicy
 
     /**
      * Determine whether the admin can view the model.
-     *
-     * @param  \BlackBox\Admin\Models\Admin  $admin
-     * @param  \Spatie\Permission\Models\Role  $role
-     * @return bool
      */
     public function view(Admin $admin, Role $role): bool
     {
@@ -35,9 +28,6 @@ class RolePolicy
 
     /**
      * Determine whether the admin can create models.
-     *
-     * @param  \BlackBox\Admin\Models\Admin  $admin
-     * @return bool
      */
     public function create(Admin $admin): bool
     {
@@ -46,10 +36,6 @@ class RolePolicy
 
     /**
      * Determine whether the admin can update the model.
-     *
-     * @param  \BlackBox\Admin\Models\Admin  $admin
-     * @param  \Spatie\Permission\Models\Role  $role
-     * @return bool
      */
     public function update(Admin $admin, Role $role): bool
     {
@@ -58,10 +44,6 @@ class RolePolicy
 
     /**
      * Determine whether the admin can delete the model.
-     *
-     * @param  \BlackBox\Admin\Models\Admin  $admin
-     * @param  \Spatie\Permission\Models\Role  $role
-     * @return bool
      */
     public function delete(Admin $admin, Role $role): bool
     {
@@ -70,9 +52,6 @@ class RolePolicy
 
     /**
      * Determine whether the admin can bulk delete.
-     *
-     * @param  \BlackBox\Admin\Models\Admin  $admin
-     * @return bool
      */
     public function deleteAny(Admin $admin): bool
     {
@@ -81,10 +60,6 @@ class RolePolicy
 
     /**
      * Determine whether the admin can permanently delete.
-     *
-     * @param  \BlackBox\Admin\Models\Admin  $admin
-     * @param  \Spatie\Permission\Models\Role  $role
-     * @return bool
      */
     public function forceDelete(Admin $admin, Role $role): bool
     {
@@ -93,9 +68,6 @@ class RolePolicy
 
     /**
      * Determine whether the admin can permanently bulk delete.
-     *
-     * @param  \BlackBox\Admin\Models\Admin  $admin
-     * @return bool
      */
     public function forceDeleteAny(Admin $admin): bool
     {
@@ -104,10 +76,6 @@ class RolePolicy
 
     /**
      * Determine whether the admin can restore.
-     *
-     * @param  \BlackBox\Admin\Models\Admin  $admin
-     * @param  \Spatie\Permission\Models\Role  $role
-     * @return bool
      */
     public function restore(Admin $admin, Role $role): bool
     {
@@ -116,9 +84,6 @@ class RolePolicy
 
     /**
      * Determine whether the admin can bulk restore.
-     *
-     * @param  \BlackBox\Admin\Models\Admin  $admin
-     * @return bool
      */
     public function restoreAny(Admin $admin): bool
     {
@@ -127,10 +92,6 @@ class RolePolicy
 
     /**
      * Determine whether the admin can replicate.
-     *
-     * @param  \BlackBox\Admin\Models\Admin  $admin
-     * @param  \Spatie\Permission\Models\Role  $role
-     * @return bool
      */
     public function replicate(Admin $admin, Role $role): bool
     {
@@ -139,13 +100,9 @@ class RolePolicy
 
     /**
      * Determine whether the admin can reorder.
-     *
-     * @param  \BlackBox\Admin\Models\Admin  $admin
-     * @return bool
      */
     public function reorder(Admin $admin): bool
     {
         return $admin->can('{{ Reorder }}');
     }
-
 }

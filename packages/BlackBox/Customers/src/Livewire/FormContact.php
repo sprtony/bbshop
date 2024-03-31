@@ -2,12 +2,12 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
+use App\Mail\ContactMessageSended;
+use App\Models\ContactMessage;
+use App\Models\PostalCode;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
-
-use App\Mail\ContactMessageSended;
-use App\Models\{ContactMessage, PostalCode};
+use Livewire\Component;
 
 class FormContact extends Component
 {
@@ -74,17 +74,18 @@ class FormContact extends Component
     public function updatedCaptcha($token)
     {
         //si no hay captcha
-        if (!setting('general.captcha_private') && !setting('general.captcha_public')) {
+        if (! setting('general.captcha_private') && ! setting('general.captcha_public')) {
             $this->store();
+
             return;
         }
 
-        $response = Http::post('https://www.google.com/recaptcha/api/siteverify?secret=' . setting('general.captcha_private') . '&response=' . $token);
+        $response = Http::post('https://www.google.com/recaptcha/api/siteverify?secret='.setting('general.captcha_private').'&response='.$token);
         $this->captcha = $response->json()['score'];
         if ($this->captcha > 0.3) {
             $this->store();
         } else {
-            $this->dispatch('swal', title: 'Error', message: 'Score: ' . $this->captcha, type: 'error');
+            $this->dispatch('swal', title: 'Error', message: 'Score: '.$this->captcha, type: 'error');
         }
     }
 }

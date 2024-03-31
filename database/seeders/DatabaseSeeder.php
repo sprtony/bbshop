@@ -8,7 +8,6 @@ use BlackBox\Admin\Models\Admin;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
-use Spatie\Permission\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {

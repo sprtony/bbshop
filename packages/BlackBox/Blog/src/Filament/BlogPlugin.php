@@ -2,10 +2,10 @@
 
 namespace Quimaira\Blog\Filament;
 
-use Quimaira\Blog\Filament\Resources\{BlogCategoryResource, BlogPostResource};
-
 use Filament\Contracts\Plugin;
 use Filament\Panel;
+use Quimaira\Blog\Filament\Resources\BlogCategoryResource;
+use Quimaira\Blog\Filament\Resources\BlogPostResource;
 
 class BlogPlugin implements Plugin
 {

@@ -2,9 +2,9 @@
 
 namespace Quimaira\Blog\Filament\Resources\BlogPostResource\Pages;
 
-use Quimaira\Blog\Filament\Resources\BlogPostResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
+use Quimaira\Blog\Filament\Resources\BlogPostResource;
 
 class ListPosts extends ListRecords
 {

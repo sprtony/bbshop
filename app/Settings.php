@@ -8,7 +8,6 @@ use Spatie\LaravelSettings\Models\SettingsProperty;
 
 class Settings
 {
-
     public function setting($key, $default = null)
     {
 

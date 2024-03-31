@@ -9,5 +9,5 @@ class CreateProduct extends CreateRecord
 {
     protected static string $resource = ProductResource::class;
 
-    protected static ?string $title = "Crear Producto";
+    protected static ?string $title = 'Crear Producto';
 }

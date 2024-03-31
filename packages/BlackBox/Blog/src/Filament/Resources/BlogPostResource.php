@@ -2,17 +2,15 @@
 
 namespace Quimaira\Blog\Filament\Resources;
 
-use Illuminate\Support\Str;
-
+use Archilex\ToggleIconColumn\Columns\ToggleIconColumn;
 use Filament\Forms;
-use Filament\Forms\{Form, Set};
+use Filament\Forms\Form;
+use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-
+use Illuminate\Support\Str;
 use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
-use Archilex\ToggleIconColumn\Columns\ToggleIconColumn;
-
 use Quimaira\Blog\Filament\Resources\BlogPostResource\Pages;
 use Quimaira\Blog\Models\BlogPost;
 
@@ -21,9 +19,11 @@ class BlogPostResource extends Resource
     protected static ?string $model = BlogPost::class;
 
     protected static ?string $modelLabel = 'post';
+
     protected static ?string $pluralModelLabel = 'posts';
 
     protected static ?string $navigationIcon = 'heroicon-o-document';
+
     protected static ?string $navigationGroup = 'Blog';
 
     public static function form(Form $form): Form

@@ -3,10 +3,8 @@
 namespace BlackBox\Catalog\Filament\Resources\CategoryResource\Pages;
 
 use BlackBox\Admin\Actions;
-
-use SolutionForest\FilamentTree\Resources\Pages\TreePage as BasePage;
-
 use BlackBox\Catalog\Filament\Resources\CategoryResource;
+use SolutionForest\FilamentTree\Resources\Pages\TreePage as BasePage;
 
 class TreeCategory extends BasePage
 {

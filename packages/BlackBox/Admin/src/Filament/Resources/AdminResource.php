@@ -2,27 +2,26 @@
 
 namespace BlackBox\Admin\Filament\Resources;
 
-use Illuminate\Database\Eloquent\Builder;
-
+use BlackBox\Admin\Filament\Resources\AdminResource\Pages;
+use BlackBox\Admin\Models\Admin;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-
-use BlackBox\Admin\Filament\Resources\AdminResource\Pages;
-use BlackBox\Admin\Models\Admin;
+use Illuminate\Database\Eloquent\Builder;
 
 class AdminResource extends Resource
 {
     protected static ?string $model = Admin::class;
 
     protected static ?string $modelLabel = 'administrador';
+
     protected static ?string $pluralModelLabel = 'administradores';
 
     protected static ?string $navigationIcon = 'heroicon-s-user';
-    protected static ?string $navigationGroup = 'Control de accesos';
 
+    protected static ?string $navigationGroup = 'Control de accesos';
 
     public static function form(Form $form): Form
     {
@@ -41,7 +40,7 @@ class AdminResource extends Resource
                     ->maxLength(255),
                 Forms\Components\Select::make('roles')->multiple()
                     ->relationship('roles', 'name', fn (Builder $query) => $query->where('id', '!=', 1))
-                    ->preload()->hidden(fn (Admin $admin) => $admin->id == 1)
+                    ->preload()->hidden(fn (Admin $admin) => $admin->id == 1),
             ]);
     }
 

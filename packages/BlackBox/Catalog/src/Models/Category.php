@@ -2,8 +2,9 @@
 
 namespace BlackBox\Catalog\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\{Model, Builder};
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use SolutionForest\FilamentTree\Concern\ModelTree;
 

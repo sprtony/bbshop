@@ -12,27 +12,38 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('sku')->nullable();
             $table->string('name')->nullable();
-            $table->text('description')->nullable();
             $table->string('slug')->unique();
+            $table->text('description')->nullable();
 
+            $table->boolean('can_be_sale')->nullable();
+            $table->boolean('can_manage_inventory')->nullable();
+            $table->boolean('can_be_shipped')->nullable();
             $table->boolean('new')->nullable();
             $table->boolean('featured')->nullable();
             $table->boolean('active')->nullable();
+            $table->boolean('private')->nullable();
+
             $table->string('thumbnail')->nullable();
             $table->text('gallery')->nullable();
 
             $table->decimal('price', 12, 4)->nullable();
-            $table->integer('order')->nullable();
+            $table->decimal('special_price', 12, 4)->nullable();
+            $table->dateTime('special_price_from')->nullable();
+            $table->dateTime('special_price_to')->nullable();
+
+            $table->integer('inventory')->nullable();
 
             $table->string('meta_title')->nullable();
             $table->text('meta_description')->nullable();
-            $table->string('meta_keywords')->nullable();
+            $table->text('meta_keywords')->nullable();
 
-            $table->integer('brand_id')->unsigned()->nullable()->default(null);
-            $table->foreign('brand_id')->references('id')->on('brands')->onUpdate('cascade')->onDelete('set null');
+            $table->unsignedBigInteger('parent_id')->nullable();
+            $table->foreign('parent_id')->references('id')->on('products')->cascadeOnDelete();
+
+            $table->foreignId('brand_id')->nullable()->constrained()->cascadeOnDelete();
 
             $table->timestamps();
         });

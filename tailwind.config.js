@@ -1,8 +1,6 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
-import preset from "./vendor/filament/support/tailwind.config.preset";
 
 module.exports = {
-    presets: [preset],
     theme: {
         extend: {
             fontFamily: {
@@ -27,11 +25,6 @@ module.exports = {
             "./resources/**/*.php",
             "./resources/**/*.vue",
             "./resources/**/*.twig",
-            "./vendor/solution-forest/filament-tree/resources/**/*.blade.php",
-            "./vendor/mohamedsabil83/filament-forms-tinyeditor/resources/**/*.blade.php",
-            "./app/Filament/**/*.php",
-            "./resources/views/filament/**/*.blade.php",
-            "./vendor/filament/**/*.blade.php",
         ],
     },
     plugins: [

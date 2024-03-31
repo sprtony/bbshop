@@ -18,4 +18,3 @@ return [
      */
     'default_children_key_name' => 'children',
 ];
-

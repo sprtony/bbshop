@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('product_relations', function (Blueprint $table) {
-            $table->integer('parent_id')->unsigned();
-            $table->integer('child_id')->unsigned();
-            $table->foreign('parent_id')->references('id')->on('products')->onDelete('cascade');
-            $table->foreign('child_id')->references('id')->on('products')->onDelete('cascade');
+            $table->unsignedBigInteger('parent_id');
+            $table->unsignedBigInteger('child_id');
+            $table->foreign('parent_id')->references('id')->on('products')->cascadeOnDelete();
+            $table->foreign('child_id')->references('id')->on('products')->cascadeOnDelete();
         });
     }
 

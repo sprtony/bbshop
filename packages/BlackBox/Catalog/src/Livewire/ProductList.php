@@ -2,17 +2,25 @@
 
 namespace BlackBox\Catalog\Livewire;
 
+use BlackBox\Catalog\Models\Brand;
+use BlackBox\Catalog\Models\Category;
+use BlackBox\Catalog\Models\Product;
 use Illuminate\Support\Collection;
-use Livewire\Component;
 use Livewire\Attributes\Url;
-use BlackBox\Catalog\Models\{Category, Brand, Product};
+use Livewire\Component;
 
 class Listado extends Component
 {
     public ?Category $category = null;
-    public Collection $categories, $brands;
+
+    public Collection $categories;
+
+    public Collection $brands;
+
     public int $perPage = 24;
+
     public int $page = 0;
+
     public array $loadedProducts = [];
 
     #[Url(as: 'marcas')]
@@ -64,14 +72,14 @@ class Listado extends Component
     {
         if (is_numeric($key = array_search($value, $this->selectedBrands))) {
             unset($this->selectedBrands[$key]);
+
             return;
         }
         $this->selectedBrands[] = $value;
     }
 
-
     public function togglePromotion()
     {
-        $this->promotion = !$this->promotion;
+        $this->promotion = ! $this->promotion;
     }
 }

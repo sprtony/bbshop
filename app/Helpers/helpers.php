@@ -2,14 +2,14 @@
 
 use App\Facades\Settings;
 
-if (!function_exists('setting')) {
+if (! function_exists('setting')) {
     function setting($key, $default = null)
     {
         return Settings::setting($key, $default);
     }
 }
 
-if (!function_exists('slugify')) {
+if (! function_exists('slugify')) {
     function slugify($string)
     {
         // Remove all non-word characters.
@@ -25,14 +25,14 @@ if (!function_exists('slugify')) {
     }
 }
 
-if (!function_exists('generateSVG')) {
+if (! function_exists('generateSVG')) {
     function generateSVG($path, $class = '')
     {
         // Create the dom document as per the other answers
         $svg = new \DOMDocument();
-        $path = storage_path('app/public/' . $path);
+        $path = storage_path('app/public/'.$path);
         $svg->load($path);
-        $svg->documentElement->setAttribute("class", $class);
+        $svg->documentElement->setAttribute('class', $class);
         $output = $svg->saveXML($svg->documentElement);
 
         return $output;

@@ -2,11 +2,10 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Foundation\AliasLoader;
-
 use App\Facades\Settings as SettingsFacade;
 use App\Settings;
+use Illuminate\Foundation\AliasLoader;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -34,7 +33,7 @@ class AppServiceProvider extends ServiceProvider
 
     private function loadHelpers(): void
     {
-        foreach (glob(__DIR__ . '/../Helpers/*.php') as $filename) {
+        foreach (glob(__DIR__.'/../Helpers/*.php') as $filename) {
             require_once $filename;
         }
     }

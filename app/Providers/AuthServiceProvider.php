@@ -3,9 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-
 use Illuminate\Support\Facades\Gate;
-use BlackBox\Admin\Models\Admin;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -21,8 +19,5 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(Gate $gate): void
     {
-        // Gate::before(function (Admin $admin) {
-        //     return $admin->isSuperAdmin() ? true : null;
-        // });
     }
 }

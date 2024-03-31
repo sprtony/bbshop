@@ -23,8 +23,7 @@ Lista de modulos
 
 ## Admin
 - Admins
-- Roles
-- Permissions
+- Roles (Shield)
 ## Blog
 - Categories
 - Posts
@@ -36,7 +35,7 @@ Lista de modulos
     - Product can be sale
     - Product can be shipped
 
-- Type (blueprint/family/shoes/t-shirt)
+<!-- - Type (blueprint: family/shoes/t-shirt) -->
 - Attributes
 
 
