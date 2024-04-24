@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('banners', function (Blueprint $table) {
             $table->id();
-
             $table->string('image');
             $table->string('mobile')->nullable();
             $table->string('link')->nullable();
@@ -21,7 +20,6 @@ return new class extends Migration
             $table->boolean('active');
             $table->dateTime('from')->nullable();
             $table->dateTime('to')->nullable();
-
             $table->timestamps();
         });
     }

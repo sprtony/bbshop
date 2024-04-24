@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Sushi\Sushi;
 
-class PostalCode extends Model
+final class PostalCode extends Model
 {
     use Sushi;
 

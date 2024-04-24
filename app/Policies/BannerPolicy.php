@@ -2,8 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\Admin;
-use App\Models\Banner;
+use BlackBox\Admin\Models\Admin;
 
 class BannerPolicy
 {
@@ -26,7 +25,7 @@ class BannerPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(Admin $user, Banner $banner): bool
+    public function update(Admin $user): bool
     {
         return $user->can('update Banner');
     }
@@ -34,7 +33,7 @@ class BannerPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(Admin $user, Banner $banner): bool
+    public function delete(Admin $user): bool
     {
         return $user->can('delete Banner');
     }

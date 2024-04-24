@@ -34,7 +34,7 @@
                 @include('layout.header.drawers.menu')
 
                 <a href="{{ route('home') }}">
-                    <img src="{{ setting('seo.logo') ? Storage::url(setting('seo.logo')) : Vite::asset('resources/images/layout/logo.webp') }}"
+                    <img src="{{ setting('seo.logo') ? Storage::url(setting('seo.logo')) : Vite::asset('resources/images/layout/logo2.jpg') }}"
                         alt="{{ setting('seo.title') }}" class="max-h-10 max-h-11">
                 </a>
 

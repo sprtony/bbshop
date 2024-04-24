@@ -4,7 +4,6 @@ namespace App\Policies;
 
 use BlackBox\Admin\Models\Admin;
 use Illuminate\Auth\Access\HandlesAuthorization;
-use Spatie\Permission\Models\Role;
 
 class RolePolicy
 {
@@ -21,7 +20,7 @@ class RolePolicy
     /**
      * Determine whether the admin can view the model.
      */
-    public function view(Admin $admin, Role $role): bool
+    public function view(Admin $admin): bool
     {
         return $admin->can('view_role');
     }
@@ -37,7 +36,7 @@ class RolePolicy
     /**
      * Determine whether the admin can update the model.
      */
-    public function update(Admin $admin, Role $role): bool
+    public function update(Admin $admin): bool
     {
         return $admin->can('update_role');
     }
@@ -45,7 +44,7 @@ class RolePolicy
     /**
      * Determine whether the admin can delete the model.
      */
-    public function delete(Admin $admin, Role $role): bool
+    public function delete(Admin $admin): bool
     {
         return $admin->can('delete_role');
     }
@@ -61,7 +60,7 @@ class RolePolicy
     /**
      * Determine whether the admin can permanently delete.
      */
-    public function forceDelete(Admin $admin, Role $role): bool
+    public function forceDelete(Admin $admin): bool
     {
         return $admin->can('{{ ForceDelete }}');
     }
@@ -77,7 +76,7 @@ class RolePolicy
     /**
      * Determine whether the admin can restore.
      */
-    public function restore(Admin $admin, Role $role): bool
+    public function restore(Admin $admin): bool
     {
         return $admin->can('{{ Restore }}');
     }
@@ -93,7 +92,7 @@ class RolePolicy
     /**
      * Determine whether the admin can replicate.
      */
-    public function replicate(Admin $admin, Role $role): bool
+    public function replicate(Admin $admin): bool
     {
         return $admin->can('{{ Replicate }}');
     }

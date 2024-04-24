@@ -13,7 +13,7 @@ return [
     'force_https' => env('APP_HTTPS', 'false'),
     'asset_url' => env('ASSET_URL'),
     'timezone' => 'UTC',
-    'locale' => env('APP_LOCALE', 'en'),
+    'locale' => env('APP_LOCALE', 'es'),
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
     'key' => env('APP_KEY'),

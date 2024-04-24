@@ -1,5 +1,7 @@
 //VITE PUEDE CARGAR IMAGENES
-import.meta.glob(["../images/**"]);
+import.meta.glob("../images/**", {
+    query: "?format=webp",
+});
 
 // import Echo from 'laravel-echo';
 // import Pusher from 'pusher-js';
